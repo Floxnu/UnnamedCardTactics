@@ -6,6 +6,10 @@ public class SelectionStateManager : MonoBehaviour {
 
 	public Player unitSelected;
 
+	public delegate void TurnAction();
+
+	public static event TurnAction OnNewTurn;
+
 	public enum SelectionState
 	{
 		PLAYER,
@@ -154,6 +158,7 @@ public class SelectionStateManager : MonoBehaviour {
 		CanvasManager.instance.EnableCharacterUI(true);
 
 		RefreshAP();
+		
 
 		playerNode = Pathfinding.instance.grid.GridFromWorldPoint(unitSelected.transform.position);
 		Pathfinding.instance.FindPaths(playerNode, 1, newPlayer.actionPoints, false);
@@ -166,6 +171,7 @@ public class SelectionStateManager : MonoBehaviour {
 	public void RefreshAP(){
 		CanvasManager.instance.setAPText(unitSelected.actionPoints.ToString());
 		CanvasManager.instance.setCurrentAP((float)unitSelected.actionPoints);
+		CanvasManager.instance.setStaminaUI(unitSelected.currentStamina, unitSelected.staminaStat);
 	}
 
 	public void showCards(Player newPlayer){
@@ -252,6 +258,14 @@ public class SelectionStateManager : MonoBehaviour {
 		{
 			Pathfinding.instance.clearInTacklekRange();
 			Pathfinding.instance.FindPaths(playerNode, 1, unitSelected.actionPoints, false);
+		}
+	}
+
+	public void EndTurn(){
+		RefreshPaths(false);
+		OnNewTurn();
+		if(unitSelected!=null){
+			setSelectedUnit(unitSelected, false);
 		}
 	}
 

@@ -10,6 +10,9 @@ public class Player : MonoBehaviour {
 	public double actionPoints;
 	public DeckManager playerDeck;
 	public int attackRange;
+	public double currentStamina;
+	public double staminaStat;
+
 	SelectionStateManager selectionRef;
 
 	private void Awake() {
@@ -19,6 +22,10 @@ public class Player : MonoBehaviour {
 	private void Start() {
 		selectionRef = SelectionStateManager.instance;
 		Pathfinding.instance.grid.GridFromWorldPoint(transform.position).unitInSquare = null;
+
+		currentStamina = staminaStat;
+
+		SelectionStateManager.OnNewTurn += NewTurn;
 	}
 
 	public void StartPath (Vector3[] pathArray)
@@ -68,6 +75,14 @@ public class Player : MonoBehaviour {
 
 	public void ModifyActionPoints(int actionPointsToGain){
 		actionPoints += actionPointsToGain;
+	}
+
+	public void NewTurn(){
+
+		playerDeck.EndTurn();
+		actionPoints = currentStamina;
+		currentStamina = staminaStat;
+
 	}
 	
 }
