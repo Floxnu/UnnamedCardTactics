@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 [SelectionBase]
@@ -60,19 +61,23 @@ public class Card : MonoBehaviour {
 
 	public void Play()
 	{
-		if(SelectionStateManager.instance.currentState == SelectionStateManager.SelectionState.BURN){
-			charDeck.playerRef.ModifyActionPoints(BurnValue);
-			SelectionStateManager.instance.setSelectedUnit(charDeck.playerRef, false);
-			toPlayed();
-		} else{
-			if(charDeck.playerRef.actionPoints - APCost >= 0){
-				charDeck.playerRef.ModifyActionPoints(-APCost);
-				Effect();
+		switch (SelectionStateManager.instance.currentState){
+			case SelectionStateManager.SelectionState.BURN:
+				charDeck.playerRef.ModifyActionPoints(BurnValue);
+				SelectionStateManager.instance.setSelectedUnit(charDeck.playerRef, false);
 				toPlayed();
-			}
-
+				break;
+			case SelectionStateManager.SelectionState.CARDS:
+				if(charDeck.playerRef.actionPoints - APCost >= 0){
+					charDeck.playerRef.ModifyActionPoints(-APCost);
+					Effect();
+					toPlayed();
+				}
+				break;
+			case SelectionStateManager.SelectionState.PURCHASE:
+			
+			break;
 		}
-	
 	}
 
 	public void Discard()
@@ -105,6 +110,18 @@ public class Card : MonoBehaviour {
 
 	public void ToggleBurnText(){
 		RenderMan.BurnCost.gameObject.SetActive(!RenderMan.BurnCost.gameObject.activeSelf);
+	}
+
+	public void ToggleShadows(bool active){
+
+		if(active){
+
+			RenderMan.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.On;
+		}else
+		{
+			RenderMan.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
+			
+		}
 	}
 
 }

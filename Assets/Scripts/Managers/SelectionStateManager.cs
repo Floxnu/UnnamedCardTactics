@@ -16,7 +16,8 @@ public class SelectionStateManager : MonoBehaviour {
 		CARDS,
 		PATH,
 		BURN,
-		TACKLE
+		TACKLE,
+		PURCHASE
 	}
 
 	Node selectedNode;

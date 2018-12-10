@@ -1363,6 +1363,75 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676937895}
   m_CullTransparentMesh: 0
+--- !u!1 &791379478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791379479}
+  - component: {fileID: 791379481}
+  - component: {fileID: 791379480}
+  m_Layer: 5
+  m_Name: PurchaseCardTray
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &791379479
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 791379478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 846028479}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 17.890015}
+  m_SizeDelta: {x: 450, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &791379480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 791379478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &791379481
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 791379478}
+  m_CullTransparentMesh: 0
 --- !u!1 &846028475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1523,7 @@ RectTransform:
   - {fileID: 319301010}
   - {fileID: 506060062}
   - {fileID: 15475664}
+  - {fileID: 791379479}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2463,6 +2533,7 @@ GameObject:
   - component: {fileID: 1842217104}
   - component: {fileID: 1842217103}
   - component: {fileID: 1842217105}
+  - component: {fileID: 1842217106}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2514,6 +2585,31 @@ MonoBehaviour:
   unitSelected: {fileID: 0}
   currentState: 0
   inMotion: 0
+--- !u!114 &1842217106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1842217102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391442a3412bd1f4a97499e75fb586ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: 0
+  endPosition: 20
+  purchasableCards:
+  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
+  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
+  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
+  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
+  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
+  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
+  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
+  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
+  cardHeightModifier: 0
+  currentOffset: 0
+  offset: 0
 --- !u!1 &1857194491
 GameObject:
   m_ObjectHideFlags: 0

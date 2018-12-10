@@ -136,7 +136,7 @@ public class PathfindingGrid : MonoBehaviour {
 				
 
 				GameObject currentObject = Instantiate(cubePrefab, worldPoint, Quaternion.identity);
-				print(worldPoint);
+				//print(worldPoint);
 				currentObject.name = "GridPoint " + x + y; 
 				currentObject.GetComponent<GridSquare>().parentNode = grid[x, y];
 					//currentObject.transform.localScale = new Vector3(1.5f, .1f, 1.5f);
