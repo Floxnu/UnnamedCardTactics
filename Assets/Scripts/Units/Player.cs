@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	private bool isSelected{get; set;} = false;
-	float Speed = 13f;
+	float Speed = 30f;
 	public Vector3[] path;
 	public double actionPoints;
 	public DeckManager playerDeck;

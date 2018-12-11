@@ -29,6 +29,7 @@ public class SelectionStateManager : MonoBehaviour {
 	Node playerNode;
 
 	public bool inMotion;
+	public bool canSelectPaths = true;
 
 	private void Awake() {
 		instance = this;
@@ -73,7 +74,7 @@ public class SelectionStateManager : MonoBehaviour {
 						}
 					}
 
-					if(nodeToSee != null)
+					if(nodeToSee != null && canSelectPaths)
 					{
 						if(selectedNode != nodeToSee){
 							
@@ -127,12 +128,17 @@ public class SelectionStateManager : MonoBehaviour {
 		}
 
 		if(Input.GetKeyDown(KeyCode.Space) && !inMotion){
+			if(currentState == SelectionState.PURCHASE){
+				PurchaseAreaManager.instance.ToggleTray();
+			}
 			resetSelections();
 			Pathfinding.instance.clearInRange();
 			Pathfinding.instance.clearInTacklekRange();
 			RefreshPaths(false);
 			CanvasManager.instance.ResetButtonUIColor();			
 			CanvasManager.instance.EnableCharacterUI(false);
+
+			PurchaseAreaManager.instance.purchaseTrayRef.SetButtonText(PurchaseTray.TrayState.NOT_SELECTED);
 		}
 
 		if(Input.GetKeyDown(KeyCode.B) && unitSelected != null){
@@ -160,6 +166,7 @@ public class SelectionStateManager : MonoBehaviour {
 
 		RefreshAP();
 		
+		PurchaseAreaManager.instance.purchaseTrayRef.SetButtonText(PurchaseTray.TrayState.PLAYER_SELECTED);
 
 		playerNode = Pathfinding.instance.grid.GridFromWorldPoint(unitSelected.transform.position);
 		Pathfinding.instance.FindPaths(playerNode, 1, newPlayer.actionPoints, false);

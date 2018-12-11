@@ -40,9 +40,17 @@ public class PurchaseAreaManager : MonoBehaviour {
 		isOpen = !isOpen;
 		if(SelectionStateManager.instance.currentState != SelectionStateManager.SelectionState.PURCHASE && isOpen){
 			SelectionStateManager.instance.currentState = SelectionStateManager.SelectionState.PURCHASE;
-		} else
+			Pathfinding.instance.clearInPath();
+		} else if(SelectionStateManager.instance.unitSelected != null)
 		{
+			print("Here!");
+			SelectionStateManager.instance.setSelectedUnit(SelectionStateManager.instance.unitSelected, false);
+			purchaseTrayRef.SetButtonText(PurchaseTray.TrayState.PLAYER_SELECTED);
+	
+		}else{
+
 			SelectionStateManager.instance.currentState = SelectionStateManager.SelectionState.PLAYER;
+			purchaseTrayRef.SetButtonText(PurchaseTray.TrayState.NOT_SELECTED);
 		}
 	}
 
@@ -55,10 +63,8 @@ public class PurchaseAreaManager : MonoBehaviour {
 
 		Card currentCard = current.GetComponent<Card>();
 		currentCard.ToggleShadows(false);
+		currentCard.indexInPurchase = cardPosition;
 
-		if(cardRef[cardPosition] != null){
-			Destroy(cardRef[cardPosition].gameObject);
-		}
 		cardRef[cardPosition] = currentCard;
 	}
 

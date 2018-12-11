@@ -15,6 +15,7 @@ public class Card : MonoBehaviour {
 	public enum Effects {Draw, Deal, Heal, Action}
 	public Effects[] cardEffects;
 	public DeckManager charDeck;
+	public int indexInPurchase;
 
 
 	public bool mouseOver;
@@ -75,8 +76,13 @@ public class Card : MonoBehaviour {
 				}
 				break;
 			case SelectionStateManager.SelectionState.PURCHASE:
-			
-			break;
+				if(SelectionStateManager.instance.unitSelected != null){
+					SelectionStateManager.instance.unitSelected.playerDeck.AddCard(this);
+					PurchaseAreaManager.instance.AddCardToPosition(indexInPurchase);
+					EnableEverything(false);
+					ToggleShadows(true);
+				}
+				break;
 		}
 	}
 

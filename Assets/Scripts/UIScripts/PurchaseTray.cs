@@ -10,6 +10,14 @@ public class PurchaseTray : MonoBehaviour {
 	[SerializeField]
 	private Image darkenedBackground;
 
+	public enum TrayState
+	{
+		PLAYER_SELECTED,
+		OPEN,
+		NOT_SELECTED
+	}
+
+	public Text buttonText;
 	private RectTransform trayTransform;
 	Vector2 targetLocation;
 
@@ -32,6 +40,7 @@ public class PurchaseTray : MonoBehaviour {
 	}
 
 	IEnumerator MoveDown(){
+		SetButtonText(TrayState.OPEN);
 		targetLocation = new Vector2(0, -60);
 		while(trayTransform.anchoredPosition.y > targetLocation.y + .1f){
 			trayTransform.anchoredPosition = Vector2.Lerp(trayTransform.anchoredPosition, targetLocation, .3f);
@@ -39,7 +48,7 @@ public class PurchaseTray : MonoBehaviour {
 		}
 		print("OutOfLoop");
 		yield break;
-		print("GotHere");
+
 	}
 
 	IEnumerator MoveUp(){
@@ -50,11 +59,29 @@ public class PurchaseTray : MonoBehaviour {
 		}
 		print("OutOfLoop2");
 		yield break;
-		print("GotHere");
+
 	}
 
 	private void ShowBackground(bool active){
 		darkenedBackground.enabled = active;
+	}
+
+	private void OnMouseOver() {
+		Pathfinding.instance.clearInPath();
+	}
+
+	public void SetButtonText(TrayState targetState){
+		switch (targetState){
+			case TrayState.NOT_SELECTED:
+				buttonText.text = "LOOK AT";
+				break;
+			case TrayState.PLAYER_SELECTED:
+				buttonText.text = "PURCHASE";
+				break;
+			case TrayState.OPEN:
+				buttonText.text = "CLOSE";
+				break;
+		}
 	}
 	
 }

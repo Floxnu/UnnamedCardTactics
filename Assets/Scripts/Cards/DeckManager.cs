@@ -93,16 +93,14 @@ public class DeckManager : MonoBehaviour {
 
 	}
 
-	private void Update() 
-	{
-
-	}
-
 	public void ToggleBurnActive(){
 		foreach(Card c in Hand){
 			c.ToggleBurnText();
 		}
 	}
 	
-	
+	public void AddCard(Card cardToAdd){
+		Discard.Add(cardToAdd);
+		cardToAdd.charDeck = this;
+	}
 }
