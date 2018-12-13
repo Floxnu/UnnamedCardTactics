@@ -162,6 +162,7 @@ public class SelectionStateManager : MonoBehaviour {
 			showCards(newPlayer);
 		}
 
+		unitSelected.playerDeck.UpdateUI();
 		CanvasManager.instance.EnableCharacterUI(true);
 
 		RefreshAP();
@@ -271,6 +272,7 @@ public class SelectionStateManager : MonoBehaviour {
 
 	public void EndTurn(){
 		RefreshPaths(false);
+		print("New Turn!");
 		OnNewTurn();
 		if(unitSelected!=null){
 			setSelectedUnit(unitSelected, false);

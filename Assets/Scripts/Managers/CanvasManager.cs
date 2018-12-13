@@ -5,25 +5,38 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour {
 
+	[Header("AP")]
 	public Slider APSlider;
 	public Text APText;
-	public Image CardSectionBackground;
 
+	[Header("Stamina")]
+	public Text CurrentStaminaText;
+	public Text StaminaStat;
+	public Slider CurrentStaminaSlider;
+	public Slider StaminaStatSlider;
+
+	[Header("Buttons")]
 	public Button BurnButton;
 	public Button TackeButton;
 	public Button NextTurnButton;
 
-	public Slider CurrentStaminaSlider;
-	
-	public Text CurrentStaminaText;
-	public Text StaminaStat;
+	[Header("Images")]
+	public Image CardSectionBackground;
+	public GameObject LibraryDisplay;
+	public GameObject DiscardDisplay;
 
-	public Slider StaminaStatSlider;
+	private Text LibraryNumberText;
+	private Text DiscardNumberText;
+
 
 	public static CanvasManager instance;
 	
 	private void Awake() {
 		instance = this;
+
+		LibraryNumberText = LibraryDisplay.GetComponentInChildren<Text>();
+		DiscardNumberText = DiscardDisplay.GetComponentInChildren<Text>();
+
 		BurnButton.onClick.AddListener(()=>SelectionStateManager.instance.ToggleBurn());
 		TackeButton.onClick.AddListener(()=>SelectionStateManager.instance.ToggleTackle());
 		NextTurnButton.onClick.AddListener(()=>SelectionStateManager.instance.EndTurn());
@@ -36,6 +49,9 @@ public class CanvasManager : MonoBehaviour {
 		CardSectionBackground.enabled = active;
 		BurnButton.gameObject.SetActive(active);
 		TackeButton.gameObject.SetActive(active);
+
+		LibraryDisplay.SetActive(active);
+		DiscardDisplay.SetActive(active);
 	}
 
 	public void setAPText(string text)
@@ -62,6 +78,11 @@ public class CanvasManager : MonoBehaviour {
 	{
 		TackeButton.image.color = Color.white;
 		BurnButton.image.color = Color.white;
+	}
+
+	public void UpdateDeckUI(int LibraryCards, int DiscardCards){
+		LibraryNumberText.text = LibraryCards.ToString();
+		DiscardNumberText.text = DiscardCards.ToString();
 	}
 
 }

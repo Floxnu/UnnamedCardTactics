@@ -9,6 +9,9 @@ public class PurchaseTray : MonoBehaviour {
 	
 	[SerializeField]
 	private Image darkenedBackground;
+	private RectTransform buttonTransfomRef;
+
+	private Vector2 buttonAnchoredPosition;
 
 	public enum TrayState
 	{
@@ -24,6 +27,8 @@ public class PurchaseTray : MonoBehaviour {
 	private void Awake() {
 		trayParent = GetComponent<Image>();
 		trayTransform = trayParent.GetComponent<RectTransform>();
+		buttonTransfomRef = GetComponentInChildren<Button>().gameObject.GetComponent<RectTransform>();
+		buttonAnchoredPosition = buttonTransfomRef.anchoredPosition;
 	}
 
 	public void MovePurchasetray(bool isDown){
@@ -41,9 +46,11 @@ public class PurchaseTray : MonoBehaviour {
 
 	IEnumerator MoveDown(){
 		SetButtonText(TrayState.OPEN);
-		targetLocation = new Vector2(0, -60);
+		targetLocation = new Vector2(0, -70);
 		while(trayTransform.anchoredPosition.y > targetLocation.y + .1f){
 			trayTransform.anchoredPosition = Vector2.Lerp(trayTransform.anchoredPosition, targetLocation, .3f);
+
+			buttonTransfomRef.anchoredPosition = Vector2.Lerp(buttonTransfomRef.anchoredPosition, new Vector2(buttonAnchoredPosition.x,buttonAnchoredPosition.y - 40), .3f);
 			yield return null;
 		}
 		print("OutOfLoop");
@@ -55,6 +62,8 @@ public class PurchaseTray : MonoBehaviour {
 		targetLocation = new Vector2(0, 30);
 		while(trayTransform.anchoredPosition.y < targetLocation.y - .1f){
 			trayTransform.anchoredPosition = Vector2.Lerp(trayTransform.anchoredPosition, targetLocation, .3f);
+
+			buttonTransfomRef.anchoredPosition = Vector2.Lerp(buttonTransfomRef.anchoredPosition, new Vector2(buttonAnchoredPosition.x,buttonAnchoredPosition.y), .3f);
 			yield return null;
 		}
 		print("OutOfLoop2");

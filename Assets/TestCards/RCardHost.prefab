@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4622995375378548}
   - component: {fileID: 23094457209162866}
   - component: {fileID: 102388949335382596}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BurnText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,6 +63,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1694994100999998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4871745630197068}
+  - component: {fileID: 23359856072232624}
+  - component: {fileID: 102071482406148814}
+  m_Layer: 2
+  m_Name: PurchaseCost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1884061413826116
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +90,7 @@ GameObject:
   - component: {fileID: 4716277008663108}
   - component: {fileID: 23914372811899240}
   - component: {fileID: 102737941822005458}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,12 +104,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1666360777991922}
   m_LocalRotation: {x: 0.25000006, y: 0.25000006, z: -0.06698733, w: 0.9330127}
-  m_LocalPosition: {x: -30.138748, y: 19.085855, z: -49.52249}
+  m_LocalPosition: {x: -33.097805, y: 58.505806, z: -81.0095}
   m_LocalScale: {x: 3, y: 5, z: 0.2}
   m_Children:
   - {fileID: 4118852170940988}
   - {fileID: 4716277008663108}
   - {fileID: 4622995375378548}
+  - {fileID: 4871745630197068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30.000002, y: 30, z: 0}
@@ -135,12 +153,60 @@ Transform:
   m_Father: {fileID: 4005127037077942}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4871745630197068
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694994100999998}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.22, y: 0.445, z: 0}
+  m_LocalScale: {x: 0.05000001, y: 0.050000004, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 4005127037077942}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23094457209162866
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298361962537666}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23359856072232624
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694994100999998}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -259,6 +325,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!102 &102071482406148814
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694994100999998}
+  m_Text: XX
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 25
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278228996
 --- !u!102 &102388949335382596
 TextMesh:
   serializedVersion: 3
@@ -316,6 +403,7 @@ MonoBehaviour:
   ColliderRef: {fileID: 65942878230380716}
   cardRef: {fileID: 114773813123368694}
   BurnCost: {fileID: 102388949335382596}
+  PurchaseCost: {fileID: 102071482406148814}
 --- !u!114 &114773813123368694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,6 +422,8 @@ MonoBehaviour:
   isInPurchase: 0
   cardEffects: 00000000
   charDeck: {fileID: 0}
+  indexInPurchase: 0
+  purchaseCost: 5
   mouseOver: 0
   cardsToDraw: 2
   actionsToGain: 0

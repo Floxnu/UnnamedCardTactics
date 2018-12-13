@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RenderManager : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class RenderManager : MonoBehaviour {
 	public BoxCollider ColliderRef;
 	public Card cardRef;
 	public TextMesh BurnCost;
+	public TextMesh PurchaseCost;
+	
 
 	private void Awake() 
 	{
@@ -34,10 +37,13 @@ public class RenderManager : MonoBehaviour {
 		}
 
 	}
-	private void OnMouseDown() 
-	{
-		cardRef.Play();	
+
+	private void OnMouseDown() {
+
+		cardRef.Play();
+		
 	}
+
 	private void OnMouseEnter() {
 		cardRef.CardMouseEnter();
 	}

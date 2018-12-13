@@ -37,7 +37,13 @@ public class PurchaseAreaManager : MonoBehaviour {
 
 	public void ToggleTray(){
 		purchaseTrayRef.MovePurchasetray(!isOpen);
+		CanvasManager.instance.NextTurnButton.enabled = isOpen;
 		isOpen = !isOpen;
+		ToggleState();
+		
+	}
+
+	public void ToggleState(){
 		if(SelectionStateManager.instance.currentState != SelectionStateManager.SelectionState.PURCHASE && isOpen){
 			SelectionStateManager.instance.currentState = SelectionStateManager.SelectionState.PURCHASE;
 			Pathfinding.instance.clearInPath();
@@ -53,6 +59,7 @@ public class PurchaseAreaManager : MonoBehaviour {
 			purchaseTrayRef.SetButtonText(PurchaseTray.TrayState.NOT_SELECTED);
 		}
 	}
+
 
 	public void AddCardToPosition(int cardPosition){
 		int randomIndex = Random.Range(0, purchasableCards.Count);
@@ -81,12 +88,12 @@ public class PurchaseAreaManager : MonoBehaviour {
 				{
 					if (SelectionStateManager.instance.currentState == SelectionStateManager.SelectionState.PURCHASE)
 					{
-						cardHeightModifier = -4;
+						cardHeightModifier = -4.5f;
 					} else
 					{
 						cardHeightModifier = 0;
 					}
-					cardRef[i-1].gameObject.transform.localPosition = Vector3.Lerp(cardRef[i-1].gameObject.transform.localPosition, new Vector3((-10 + (newCardPosition - offset/3f) * i),(12 + cardHeightModifier) + offset / 1.05f ,4- (i*.2f)), .3f);
+					cardRef[i-1].gameObject.transform.localPosition = Vector3.Lerp(cardRef[i-1].gameObject.transform.localPosition, new Vector3((-10 + (newCardPosition - offset/3f) * i),(12 + cardHeightModifier) + offset / 1.05f ,4- (i*.2f) - 5), .3f);
 					cardRef[i-1].gameObject.transform.localScale = Vector3.Lerp(cardRef[i-1].gameObject.transform.localScale,new Vector3(3 - (offset/3f), 5-(offset/3f), 0.2f), 0.8f);
 				}	
 			}

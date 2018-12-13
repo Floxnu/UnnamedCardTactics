@@ -16,6 +16,7 @@ public class Card : MonoBehaviour {
 	public Effects[] cardEffects;
 	public DeckManager charDeck;
 	public int indexInPurchase;
+	public int purchaseCost;
 
 
 	public bool mouseOver;
@@ -57,6 +58,7 @@ public class Card : MonoBehaviour {
 	private void Awake() 
 	{
 		cardText = GetComponentInChildren<TextMesh>();
+		RenderMan.PurchaseCost.text = purchaseCost.ToString();
 		cardText.text = refreshText();
 	}
 
@@ -77,10 +79,12 @@ public class Card : MonoBehaviour {
 				break;
 			case SelectionStateManager.SelectionState.PURCHASE:
 				if(SelectionStateManager.instance.unitSelected != null){
+					if(!(indexInPurchase < 0)){
 					SelectionStateManager.instance.unitSelected.playerDeck.AddCard(this);
 					PurchaseAreaManager.instance.AddCardToPosition(indexInPurchase);
 					EnableEverything(false);
 					ToggleShadows(true);
+					}
 				}
 				break;
 		}
@@ -91,6 +95,7 @@ public class Card : MonoBehaviour {
 		charDeck.Hand.Remove(this);
 		charDeck.Discard.Add(this);
 		EnableEverything(false);
+		charDeck.UpdateUI();
 	}
 	public void toPlayed()
 	{
@@ -104,6 +109,7 @@ public class Card : MonoBehaviour {
 		this.gameObject.transform.position = new Vector3(-5, 2, -2);
 		RenderMan.EnableCollider(b);
 		RenderMan.EnableRenderer(b);
+		RenderMan.PurchaseCost.gameObject.SetActive(b);
 		cardText.gameObject.SetActive(b);
 	}
 

@@ -51,7 +51,7 @@ public class DeckManager : MonoBehaviour {
 			{
 				Library = Shuffle(Discard);
 				cardDrawn = Library.Pop(); 
-				
+				cardDrawn.indexInPurchase = -1;
 				Hand.Add(cardDrawn);
 			}
 			else if(Library.Count == 0 && Discard.Count == 0)
@@ -60,12 +60,14 @@ public class DeckManager : MonoBehaviour {
 			} else
 			{
 				cardDrawn = Library.Pop(); 
+				cardDrawn.indexInPurchase = -1;
 				Hand.Add(cardDrawn);
 			}
 			if(cardDrawn != null && SelectionStateManager.instance.currentState != SelectionStateManager.SelectionState.PLAYER){
 				cardDrawn.EnableEverything(true);
 				cardDrawn.gameObject.transform.localPosition =  new Vector3(20,-10 ,4);
 			}
+			UpdateUI();
 		}
 	}
 
@@ -76,7 +78,7 @@ public class DeckManager : MonoBehaviour {
 			int toDiscard = Hand.Count;
 			for(int i = 0; i < toDiscard; i++)
 			{
-				print(Hand[0].name);
+				//print(Hand[0].name);
 				Hand[0].Discard();
 			}
 		}
@@ -102,5 +104,12 @@ public class DeckManager : MonoBehaviour {
 	public void AddCard(Card cardToAdd){
 		Discard.Add(cardToAdd);
 		cardToAdd.charDeck = this;
+		UpdateUI();
+	}
+
+	public void UpdateUI(){
+		if(SelectionStateManager.instance.unitSelected != null && SelectionStateManager.instance.unitSelected == playerRef){
+			CanvasManager.instance.UpdateDeckUI(Library.Count, Discard.Count);
+		}
 	}
 }
