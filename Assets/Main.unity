@@ -432,10 +432,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Decklist:
-  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
-  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
-  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
-  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
+  - {fileID: 1758830404899828, guid: 36f61a263524fd7448c1072d5c13352d, type: 2}
+  - {fileID: 1002362075610264, guid: 420ea3ab082b4b447ba210c08e9b35b7, type: 2}
+  - {fileID: 1916273097400100, guid: 66e4b507e17e3ba4ca539d8043ab2b70, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
   Discard: []
   Hand: []
   PlayedCards: []
@@ -1581,16 +1581,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Decklist:
-  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
-  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
-  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
-  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
-  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
-  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
-  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
-  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
-  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
-  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
+  - {fileID: 1758830404899828, guid: 36f61a263524fd7448c1072d5c13352d, type: 2}
+  - {fileID: 1002362075610264, guid: 420ea3ab082b4b447ba210c08e9b35b7, type: 2}
+  - {fileID: 1916273097400100, guid: 66e4b507e17e3ba4ca539d8043ab2b70, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
+  - {fileID: 1758830404899828, guid: 36f61a263524fd7448c1072d5c13352d, type: 2}
+  - {fileID: 1002362075610264, guid: 420ea3ab082b4b447ba210c08e9b35b7, type: 2}
+  - {fileID: 1916273097400100, guid: 66e4b507e17e3ba4ca539d8043ab2b70, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
   Discard: []
   Hand: []
   PlayedCards: []
@@ -2059,10 +2059,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Decklist:
-  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
-  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
-  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
-  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
+  - {fileID: 1758830404899828, guid: 36f61a263524fd7448c1072d5c13352d, type: 2}
+  - {fileID: 1002362075610264, guid: 420ea3ab082b4b447ba210c08e9b35b7, type: 2}
+  - {fileID: 1916273097400100, guid: 66e4b507e17e3ba4ca539d8043ab2b70, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
   Discard: []
   Hand: []
   PlayedCards: []
@@ -3592,14 +3592,14 @@ MonoBehaviour:
   startPosition: 0
   endPosition: 20
   purchasableCards:
-  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
-  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
-  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
-  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
-  - {fileID: 1666360777991922, guid: 5b4a97b271e8fd8478c83e61c9d1eec1, type: 2}
-  - {fileID: 1712168480054100, guid: 7ba0297e007cb7a42bb3ce58d49f4081, type: 2}
-  - {fileID: 1845020297405448, guid: fbdc75b2a84ad9e499d4b8cca9bca1d6, type: 2}
-  - {fileID: 1919093926096328, guid: 5a4aa34d538bad54c9b8084cb7f05935, type: 2}
+  - {fileID: 1758830404899828, guid: 36f61a263524fd7448c1072d5c13352d, type: 2}
+  - {fileID: 1002362075610264, guid: 420ea3ab082b4b447ba210c08e9b35b7, type: 2}
+  - {fileID: 1916273097400100, guid: 66e4b507e17e3ba4ca539d8043ab2b70, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
+  - {fileID: 1990229081833914, guid: d639bf8c05aa5714394f7687f65a8303, type: 2}
+  - {fileID: 1916273097400100, guid: 66e4b507e17e3ba4ca539d8043ab2b70, type: 2}
+  - {fileID: 1002362075610264, guid: 420ea3ab082b4b447ba210c08e9b35b7, type: 2}
+  - {fileID: 1758830404899828, guid: 36f61a263524fd7448c1072d5c13352d, type: 2}
   cardHeightModifier: 0
   purchaseTrayRef: {fileID: 791379482}
   currentOffset: 0

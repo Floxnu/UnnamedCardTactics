@@ -94,7 +94,7 @@ public class PurchaseAreaManager : MonoBehaviour {
 						cardHeightModifier = 0;
 					}
 					cardRef[i-1].gameObject.transform.localPosition = Vector3.Lerp(cardRef[i-1].gameObject.transform.localPosition, new Vector3((-10 + (newCardPosition - offset/3f) * i),(12 + cardHeightModifier) + offset / 1.05f ,4- (i*.2f) - 5), .3f);
-					cardRef[i-1].gameObject.transform.localScale = Vector3.Lerp(cardRef[i-1].gameObject.transform.localScale,new Vector3(3 - (offset/3f), 5-(offset/3f), 0.2f), 0.8f);
+					//scardRef[i-1].gameObject.transform.localScale = Vector3.Lerp(cardRef[i-1].gameObject.transform.localScale,new Vector3(3 - (offset/3f), 5-(offset/3f), 0.2f), 0.8f);
 				}	
 			}
 		}

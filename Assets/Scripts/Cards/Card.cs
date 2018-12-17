@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using TMPro;
 
 
 [SelectionBase]
@@ -10,13 +11,14 @@ public class Card : MonoBehaviour {
 	public int APCost;
 	public RenderManager RenderMan;
 	public int BurnValue;
-	private TextMesh cardText;
+	private TextMeshPro cardText;
 	public bool isInPurchase = false;
 	public enum Effects {Draw, Deal, Heal, Action}
 	public Effects[] cardEffects;
 	public DeckManager charDeck;
 	public int indexInPurchase;
 	public int purchaseCost;
+	private bool isZoomed = false;
 
 
 	public bool mouseOver;
@@ -57,7 +59,7 @@ public class Card : MonoBehaviour {
 
 	private void Awake() 
 	{
-		cardText = GetComponentInChildren<TextMesh>();
+		cardText = GetComponentInChildren<TextMeshPro>();
 		RenderMan.PurchaseCost.text = purchaseCost.ToString();
 		cardText.text = refreshText();
 	}
@@ -133,6 +135,33 @@ public class Card : MonoBehaviour {
 		{
 			RenderMan.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
 			
+		}
+	}
+
+	public void SetZoomedSize(bool zoomed){
+		if(zoomed){
+			gameObject.transform.localScale = gameObject.transform.localScale + new Vector3(2,2,2);
+			isZoomed = true;
+		} else
+		{
+			gameObject.transform.localScale = gameObject.transform.localScale + new Vector3(-2,-2,-2);
+			isZoomed = false;
+		}
+	}
+
+
+	IEnumerator ZoomCard(){
+		yield return new WaitForSeconds(.3f);
+		SetZoomedSize(true);
+	}
+
+	public void StartZoom(){
+		StartCoroutine("ZoomCard");
+	}
+	public void StopZoom(){
+		StopCoroutine("ZoomCard");
+		if(isZoomed){
+			SetZoomedSize(false);
 		}
 	}
 

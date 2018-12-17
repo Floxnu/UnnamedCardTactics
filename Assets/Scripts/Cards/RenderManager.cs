@@ -40,14 +40,24 @@ public class RenderManager : MonoBehaviour {
 
 	private void OnMouseDown() {
 
-		cardRef.Play();
+		cardRef.StartZoom();
 		
+	}
+
+	private void OnMouseUp() {
+		cardRef.StopZoom();
+	}
+
+
+	private void OnMouseUpAsButton() {
+		cardRef.Play();
 	}
 
 	private void OnMouseEnter() {
 		cardRef.CardMouseEnter();
 	}
 	private void OnMouseExit() {
+		cardRef.StopZoom();
 		cardRef.CardMouseExit();	
 	}
 }
